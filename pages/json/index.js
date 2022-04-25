@@ -1,9 +1,16 @@
-import repoLink from "../../components/repo-link.js";
+import {Redis} from "@upstash/redis"
+
+const redis = Redis.fromEnv()
+
 
 export default {
   title: "JSON Response",
   metaDescription: "Use Edge Functions to return a JSON response using Context.json().",
-  page: function () {
+  page: async function () {
+
+
+
+
     return `
     <section>
       <h1>JSON Response</h1>
@@ -19,7 +26,7 @@ export default async (request: Request, context: Context) => {
       <h2>See this in action</h2>
       <ul>
         <li><a href="/json">View the response from the Edge Function</a></li>
-        <li>${repoLink("json.ts")}</li>
+        <li>${await redis.incr("netlify-edge-counter")}</li>
       </ul>
 
       <div class="protip">
