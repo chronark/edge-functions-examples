@@ -58,6 +58,11 @@
   path = "/log"
   function = "log"
 
+
+[[edge_functions]]
+  path = "/redis"
+  function = "redis"
+
 [[edge_functions]]
   path = "/country-block"
   function = "country-block"
